@@ -1,0 +1,42 @@
+
+.card{
+    padding: 15px;
+    margin: 30px;
+    background-color:rgb(231, 38, 238);
+}
+#carder{
+  background-color: #152238;
+  
+}
+.card img{
+    width: 210px;
+    height: 210px;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    /* color: #5a5a5a; */
+  }
+
+.container{
+    margin-top: 50px;
+}
+
+
+#mnr{
+    width: 190%;
+    height: 210px;
+    text-align: center;
+    font-size:30px;
+    margin-right: 20px;
+    background-color: #152238;
+}
+.fa{
+  font-size: 80px;
+}

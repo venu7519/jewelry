@@ -1,0 +1,28 @@
+
+.card{
+    padding: 17px;
+    margin: 40px;
+}
+.card img{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.container{
+    margin-top: 50px;
+    /* padding-top: 20px; */
+}
+.btn{
+    
+        margin-left: 20px;
+}
+/* body{
+  background-color:#152238;
+} */
+

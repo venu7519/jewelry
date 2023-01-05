@@ -1,0 +1,24 @@
+#dv{
+    margin-left: 40px;
+    color: red;
+    font-size: larger;
+    font-style: italic;
+}
+.fColor{
+    background-color: blue;
+     color:white ;
+     margin-left: 50px;
+     padding-left: 20px ;
+     padding-right: 20px;
+}
+
+table{
+    border: black solid 1px ;
+    width: 100%;
+}
+
+tr,th,td{
+    border: black solid 1px ;
+    width: 30%;
+}
+

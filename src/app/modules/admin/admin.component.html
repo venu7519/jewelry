@@ -1,0 +1,70 @@
+ <mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideNavOpen">
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-admin-header (toggleSideNavForMe)="sideNavToggler()"></app-admin-header>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container> 
+
+
+<!-- <app-admin-header></app-admin-header>
+<app-sidenav></app-sidenav>
+<div class="main">
+  <router-outlet></router-outlet>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <mat-toolbar color="primary">
+    <button mat-icon-button (click)="nav.toggle()"><mat-icon>menu</mat-icon> </button>
+    <div class="logo">KV Jewellers</div>
+    <div class="extra"></div>
+    <ng-container *ngIf="!loggedIn() else hideLog">
+      <button mat-raised-button color="primary" routerLink="/login"><mat-icon>login</mat-icon><span>log-in</span></button>
+    </ng-container>
+    <ng-template #hideLog>
+      <button mat-raised-button color="warn"(click)="logOut()"><mat-icon>logout</mat-icon><span>log-out</span></button>
+    </ng-template>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="sidenav-container">
+  
+    <mat-sidenav #nav opened="true">
+        <a [routerLink]="['dashboard/home']" color="primary" >
+            <button mat-button><mat-icon>home</mat-icon><span>Home</span></button>
+        </a>
+        <a [routerLink]="['customers']" color="primary" >
+          <button mat-button><mat-icon>persons</mat-icon><span>Customers</span></button>
+      </a>
+      <a [routerLink]="['orders']" color="primary" >
+        <button mat-button><mat-icon>list</mat-icon><span>Orders</span></button>
+    </a>
+    <a [routerLink]="['albums']" color="primary" >
+      <button mat-button><mat-icon>photos</mat-icon><span>Albums</span></button>
+  </a>
+  
+    </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+  </mat-sidenav-container> -->

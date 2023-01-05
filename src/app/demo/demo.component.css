@@ -1,0 +1,101 @@
+/* nav{ 
+    background-color: blueviolet;
+  }
+  
+  .navbar-brand{
+    color: white;
+    font-style: bold;
+  }
+  
+  body{
+      background-color:black;
+    }
+    
+    h1{ 
+      padding-top: 20px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 60px;
+        color: goldenrod;
+    }
+    
+    
+    h2 {
+        
+        color:#09ff00;
+        text-align: right;
+        padding-right: 300px;
+        font-style: italic;
+        font-size: 30px;
+        font-family:cursive;
+    }
+    
+    
+    #firstparagraph{
+      font-family: lato;
+      color:rgb(222, 52, 245);
+      font-style: bold;
+      font-size: large;
+    }
+   
+  .timeT{
+    color: aliceblue;
+    margin-left: 20px;
+  }
+  
+    .firstparagraph{
+      color:#09ff00;
+    }
+    
+    table{
+      margin-left: 30px;
+      border: 1px solid white;
+      width:60%;
+    }
+    th{
+      border:1px solid goldenrod ;
+     text-align:center;
+     color: gold;
+    }
+    tr,td{
+      border:1px solid goldenrod ;
+      padding-left: 10px;
+      color: gold;
+    }
+    
+    h3{
+        text-align: center;
+        color: black;
+        font-style: bold;
+        font-family: cursive;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        background-color: gold;
+        padding-left: 30px;
+    }
+    
+    h4{
+    margin-left:  950px;
+    padding:5px;
+    padding-left: 20px;
+    font-size: large;
+    font-style: bold;
+    margin-right: 150px;
+    border: 2px dashed #09ff00;
+    }
+    
+    .mydate{
+    margin-left:1150px;
+    }
+    
+    #bgcolor{
+      background-color:blueviolet;
+      font-size:3px;
+    }
+    
+    .myinput{
+      color: burlywood;
+      font-size: large;
+      padding: 20px;
+    
+    }   */

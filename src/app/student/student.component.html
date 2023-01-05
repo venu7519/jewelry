@@ -1,0 +1,51 @@
+<p>student works!</p>
+<h1>child component:{{centralData}}</h1>
+
+<div>
+    <button class='fColor'   (click)="startVenu()">Start</button></div>
+<div id="dv" *ngFor="let w of waynu;index as d">{{d+1}}).{{w}}</div>
+<br>
+<!-- <p *ngFor="let n of nums;index as i">
+    {{n}}{{i}}
+</p> -->
+
+<!-- <table>
+    <caption> Users Data </caption>
+     <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Address</th>
+    </tr> 
+        <tr *ngFor="let value of uData">
+           <td>{{value.id}}</td><td>{{value.name}}</td><td>{{value.username}}</td><td>{{value.email}}</td>
+           <td>{{value.address.street}}, {{value.address.suite}}, {{value.address.city}}, {{value.address.zipcode}}</td> 
+       <td><button class="btn btn-primary" (click)="doPost(value.id)">POST</button></td>
+        </tr>
+</table>  -->
+
+<div *ngFor="let value of uData">
+   <P>ID: &nbsp; {{value.id}}</P>
+   <button class="btn btn-primary" (click)="doPost(value.id)">POST</button>
+</div>
+
+<br>
+<br>
+
+
+<!-- <app-footer [newData]="vData"></app-footer> -->
+
+
+<!-- <table>
+<tr>
+    <th>userId</th>
+    <th>id</th>
+    <th>title</th>
+    <th>body</th>
+    </tr> 
+<tr *ngFor="let value of newD">
+   <td>{{value.userId}}</td> <td>{{value.id}}</td> <td>{{value.title}}</td> <td>{{value.body}}</td>
+</tr>
+</table>  -->
+

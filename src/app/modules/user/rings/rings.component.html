@@ -1,0 +1,17 @@
+
+<body>
+    <div class="container">
+    <div class="row">
+        <ng-container *ngFor="let n of mrData">
+            <div class="card col-md-3">
+                <img src="{{n.image}}" alt="men ring">
+                <h6><strong>ID:&nbsp;</strong>{{n.id}}</h6>
+                <h5>Item:&nbsp; {{n.title}}</h5>
+                <p><strong>Weight:&nbsp; </strong>{{n.weight}}</p>
+                <button class="btn btn-primary" (click)="addToCart(n)">Add to cart</button>
+            </div>
+        </ng-container>
+    </div>
+</div> 
+ 
+</body>

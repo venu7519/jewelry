@@ -1,0 +1,18 @@
+table{
+    border: black solid 1px ;
+    width: 100%;
+}
+
+tr,th,td{
+    border: black solid 1px ;
+    width: 30%;
+}
+
+
+ input.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+input.ng-touched.ng-valid{
+    border: 2px solid rgb(33, 206, 236);
+} 
+

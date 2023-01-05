@@ -1,0 +1,51 @@
+/* h2{
+    text-align: center;
+    padding-top: 10px;
+}
+  
+table{
+    border: black solid 1px;
+    width: 50%;
+    margin-left: 20px;
+}
+tr,th,td{
+    border: black solid 1px;
+    width: 50%;
+} */
+
+p{
+    margin-left: 10px;
+}
+
+
+.unClr{
+    color: red;
+    margin-left: 10px;
+}
+
+input.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+
+input.ng-touched.ng-valid{
+    border: 2px solid blue;
+}
+.fa{
+    padding-top: 10px;
+    color: rgb(8, 159, 247);
+    font-size: 30px;
+    text-align: center;
+}
+body{
+    padding-top: 30px;
+}
+.card{
+    height: 80vh;
+}
+.eye{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+

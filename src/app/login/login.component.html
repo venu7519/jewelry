@@ -1,0 +1,143 @@
+<br><br>
+
+<body class="text-center">
+
+    <div class="container">
+<div class="card">
+    <main class="form-signin w-50 m-auto">
+      <form #loginF="ngForm" (ngSubmit)="login(loginF.value)">
+        <!-- <img class="mb-4" src="favicon.ico" alt="" width="52" height="52"> -->
+        <h4>K <i class="fa fa-diamond"></i> V</h4>
+        <h1 class="h3 mb-3 fw-normal">Please Log in</h1>
+    
+        <div class="form-floating">
+          <input required type="email" ngModel name="email" #email="ngModel" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <ng-container *ngIf="email.touched">
+          <p class="unClr" *ngIf="email.errors?.['required']">Email is required</p>
+          </ng-container>
+          <label for="floatingInput">Email address</label>
+        </div>
+
+         <div class="form-floating">
+          <input [type]="showpassword ? 'text' : 'password'"  required minlength="8" ngModel name="password" #psw="ngModel" class="form-control" id="floatingPassword" placeholder="Password">
+        <div (click)="toggleShow()" *ngIf="!showpassword else showElseBlock"><fa-icon class="eye" [icon]="faEye"></fa-icon></div>
+        <ng-template #showElseBlock>
+          <div (click)="toggleShow()" ><fa-icon class="eye" [icon]="faEyeSlash"></fa-icon></div>
+        </ng-template>
+        
+          <ng-container *ngIf="psw.touched">
+            <p class="unClr" *ngIf="psw.errors?.['minlength']">Password should contain 8 characters</p>
+            <p class="unClr" *ngIf="psw.errors?.['required']">Password required</p>
+        </ng-container>
+          <label for="floatingPassword">Password</label>
+        </div>
+
+         <!-- <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div> -->
+        <button class="w-50 btn btn-lg btn-primary" type="submit" [disabled]="loginF.invalid">Log in</button>
+        <!-- <td><button class="btn btn-primary" (click)="login(email)">Delete</button></td> -->
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+      </form>
+    </main>
+  </div>
+    </div>
+    
+  </body>
+
+
+    <!-- <div class="card w-50 mx-auto mt-4">
+      <h4 class="card-header text-center">Sing in</h4>
+      <div class="card-body">
+        <form [formGroup]="rForm">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control">
+            <div *ngIf="getControl['name']?.['touched'] && getControl['name']?.['errors']" class="text-danger">
+              <div *ngIf="getControl['name']?.['errors']?.['required']">Name is required.</div>
+              <div *ngIf="getControl['name']?.['errors']?.['minlength']">Minimum 4 character are required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>mobileNumber</label>
+            <input type="text" formControlName="mobileNumber" class="form-control"><br>
+            <div *ngIf="getControl['mobileNumber']?.['touched'] && getControl['mobileNumber']?.['errors']"
+              class="text-danger">
+              <div *ngIf="getControl['mobileNumber']?.['errors']?.['required']">Password is required.</div>
+              <div *ngIf="getControl['mobileNumber']?.['errors']?.['minlength']">Minimum 8 character are required.</div>
+            </div>
+            <button class="btn btn-primary" [disabled]="rForm['invalid']" (click)="submitRform()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br><br>
+     -->
+
+
+ 
+    <!-- <form  #registerF="ngForm" (ngSubmit)="Register(registerF.value)"> -->
+    <!-- <label>User Name:</label>
+        <input required minlength="3" type="text" ngModel name="userName" #un="ngModel" class="form-control w-50 m-2">
+        <ng-container *ngIf="un.touched">
+            <p class="unClr" *ngIf="un.errors?.['required']">Username is required</p>
+            <p class="unClr" *ngIf="un.errors?.['minlength']">Username required minimum 3 letters</p>
+        </ng-container> -->
+    <!-- <label>Mobile Number</label>    
+        <input  required minlength="10"  type="tel" ngModel name="mobileNumber" #mb="ngModel" class="form-control w-50 m-2">
+        <ng-container *ngIf="mb.touched">
+            <p class="unClr" *ngIf="mb.errors?.['required']">Mobile Number is required</p>
+            <p class="unClr" *ngIf="mb.errors?.['minlength']">Mobile Number should be 10 numbers </p>
+        </ng-container> -->
+    <!-- <label>Email:</label>
+        <input required type="email" ngModel name="email" #email="ngModel" class="form-control w-50 m-2">
+        <ng-container *ngIf="email.touched">
+            <p class="unClr" *ngIf="email.errors?.['required']">Email is required</p>
+        </ng-container>
+    <label>Password:</label>
+        <input required minlength="8" type="password" ngModel name="password" #psw="ngModel" class="form-control w-50 m-2">
+        <ng-container *ngIf="psw.touched">
+            <p class="unClr" *ngIf="psw.errors?.['minlength']">Password should contain 8 characters</p>
+            <p class="unClr" *ngIf="psw.errors?.['required']">Password required</p>
+        </ng-container>
+        <button class="btn btn-primary">Register</button> -->
+    <!-- </form> -->
+
+<!-- <div>form data: {{fData|json}}</div> -->
+
+ <!-- <label>User Name:</label> 
+    <input required minlength="3" type="text" ngModel name="userName" #un="ngModel" class="form-control w-50 m-2">
+<ng-container *ngIf="un.touched">
+    <p class="unClr" *ngIf="un.errors?.['required']">Username is required</p>
+    <p class="unClr" *ngIf="un.errors?.['minlength']">Username required minimum 3 letters</p>
+</ng-container> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer{
+  width: 260px;
+  background: #0f172a;
+}
+
+mat-drawer-container{
+  height: 100%;
+}
+
+
+/* .main{
+  padding-top: 3rem;
+} */
+
+
+
+
+
+
+
+
+/* .extra{
+    flex: 1 1 auto;
+  }
+  .logo{
+    margin-left:  20px;
+  }
+  
+  .sidenav-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee
+  } 
+  
+  mat-sidenav{
+    width: 200px;
+    padding: 20px;
+  }
+  
+  mat-sidenav-content{
+    display:fixed;
+    justify-content:center;
+    align-items:center;
+  }  
+ span{
+  margin-left: 10px;
+ } */

@@ -1,0 +1,45 @@
+<mat-toolbar>
+  <mat-toolbar-row class="justifty-content-between">
+    <button  mat-icon-button (click)="toggleSidenav()"><mat-icon>menu</mat-icon></button>
+    
+    <div class="extra"></div>
+    <div class="row mr-2 ml-auto">
+      <ul>
+        <li>
+          <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+          <img src="assets/images/me.jpg" class="user-image mr-1 p-2"/>
+           {{dataService.getSessionData()}} <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logOut()">
+              <mat-icon style="color: red;">exit_to_app</mat-icon> Logout </button>
+            </mat-menu>
+        </li>
+      </ul>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <mat-toolbar color="primary">
+    <button mat-icon-button><mat-icon>menu</mat-icon> </button>
+    <div class="logo">KV Jewellers</div>
+    <div class="extra"></div>
+    <ng-container>
+      <button mat-raised-button color="primary" routerLink="/login"><mat-icon>login</mat-icon><span>log-in</span></button>
+    </ng-container>
+    <ng-template>
+      <button mat-raised-button color="warn"(click)="logOut()"><mat-icon>logout</mat-icon><span>log-out</span></button>
+    </ng-template>
+  </mat-toolbar> -->

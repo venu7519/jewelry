@@ -1,0 +1,66 @@
+
+
+#iconclr{
+    color: rgb(8, 159, 247);
+  } 
+  #icn{
+    color: rgb(8, 159, 247);
+  }
+  h1{
+    font-size: 80px;
+    padding-bottom: 10px;
+  }
+  h3{
+    font-size: 40px;
+    padding-bottom: 200px;
+  
+  }
+  #hallmrk{
+    font-size: 30px;
+    padding-bottom: 150px;
+  }
+  
+  .btn{
+    
+    margin-left: 20px;
+  }
+  #gold{
+    font-family: play;
+    color:gold;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  #blink {
+    animation: blinker 1.5s linear infinite;
+    font-family: sans-serif;
+  }
+  @keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+  }
+  #silver{
+    font-family: play;
+    color:white;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  #uname{
+    color: aqua;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size: 17px;
+    font-weight: 400px;
+  }
+  .contact{
+    margin-top: 8px;
+  }
+  mat-icon{
+  margin-top: 3px;
+  font-size: 25px;
+  }
+  #new{
+    font-size: 20px;
+  }

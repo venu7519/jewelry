@@ -1,0 +1,42 @@
+table{
+    border: black solid 1px ;
+    width: 100%;
+}
+
+tr,th,td{
+    border: black solid 1px ;
+    width: 30%;
+}
+
+.unClr{
+    color: red;
+    margin-left: 10px;
+}
+
+input.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+
+input.ng-touched.ng-valid{
+    border: 1px solid rgb(45, 45, 235);
+}
+
+h2{
+    padding-top: 10px;
+    text-align: center;
+}
+#frm{
+    margin-left: 20px;
+}
+.fa{
+    padding-top: 10px;
+    color: rgb(8, 159, 247);
+    font-size: 30px;
+    text-align: center;
+}
+body{
+    padding-top: 24px;
+}
+.card{
+    height: 75vh;
+}

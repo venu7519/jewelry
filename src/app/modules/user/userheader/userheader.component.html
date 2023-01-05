@@ -1,0 +1,46 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">KV <svg id="iconclr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gem" viewBox="0 0 16 16">
+          <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002-2.195 6.828z"/>
+        </svg> Jewellers</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/user"><mat-icon>home</mat-icon></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active contact">Contact</a>
+            </li>
+          
+             <li style="margin-left: 20px;" >
+            <marquee width="100%" scrollamount="3" >  
+              <strong id="gold">Today's 10grams Gold pice = 56300/-</strong></marquee>
+            </li>
+            <li><div  id="blink"><button mat-raised-button color="warn" id="new">New</button></div></li>
+            <li>
+              <marquee width="100%" scrollamount="3" >  
+                <strong id="silver">Today's 10grams Sliver pice = 720/-</strong></marquee>
+              </li>
+          </ul>
+<ng-container *ngIf="!loggedIn() else hideLog">
+         <div > <button  class="btn btn-primary"  routerLink="/register"> Sign-up </button></div>
+         <div > <button  class="btn btn-primary"  routerLink="/login"> log-in </button></div>
+        </ng-container>
+         <ng-template #hideLog>
+          <li class="nav-item">
+            <span id="uname">{{dService.getSessionData()}}</span>
+      </li>
+         <button class="btn btn-primary"  routerLink="/cart">
+          <i style="font-size: 20px;" class='fa fa-cart-plus'></i> <div class="badge bg-danger">{{dService.cartList.length}}</div>
+      </button>
+          <button class="btn btn-danger" (click)="logOut()"> log-out </button>
+        </ng-template>
+
+        </div>
+      </div>
+    </nav>
+</header>

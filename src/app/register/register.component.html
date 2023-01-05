@@ -1,0 +1,161 @@
+<br><br>
+
+<body class="text-center">
+<div class="container">
+  <div class="card">
+<main class="form-signin w-50 m-auto">
+    <form #registerF="ngForm" (ngSubmit)="register(registerF)">
+     <h4>K <i class="fa fa-diamond"></i> V</h4>
+      <h1 class="h3 mb-3 fw-normal">Please Sign-up</h1>
+
+      <div class="form-floating">
+        <input required minlength="3" type="text" ngModel name="userName" #un="ngModel" class="form-control"
+          id="floatingInput" placeholder="xyz">
+        <ng-container *ngIf="un.touched">
+          <p class="unClr" *ngIf="un.errors?.['required']">User Name is required</p>
+          <p class="unClr" *ngIf="un.errors?.['minlength']">User Name required minimum 3 letters</p>
+        </ng-container>
+        <label for="floatingInput">User Name</label>
+      </div>
+
+      <div class="form-floating">
+        <input required minlength="10" maxlength="10" number type="tel" ngModel name="mobileNumber" #mb="ngModel"
+          class="form-control" id="floatingInput" placeholder="1234567890">
+        <ng-container *ngIf="mb.touched">
+          <p class="unClr" *ngIf="mb.errors?.['required']">Mobile Number is required</p>
+          <p class="unClr" *ngIf="mb.errors?.['minlength']">Mobile Number must contain 10 numbers</p>
+          <p class="unClr" *ngIf="mb.errors?.['maxlength']">Mobile Number should not be morethan 10 numbers </p>
+        </ng-container>
+        <label for="floatingInput">Mobile Number</label>
+      </div>
+
+      <div class="form-floating">
+        <input required email type="email" ngModel name="email" #email="ngModel" class="form-control" id="floatingInput"
+          placeholder="name@example.com">
+        <ng-container *ngIf="email.touched">
+          <p class="unClr" *ngIf="email.errors?.['required']">Email is required</p>
+          <p class="unClr" *ngIf="email.errors?.['email']">Invalid input</p>
+        </ng-container>
+        <label for="floatingInput">Email address</label>
+      </div>
+
+      <div class="form-floating">
+        <input required minlength="8" type="password" ngModel name="password" #psw="ngModel" class="form-control"
+          id="floatingPassword" placeholder="Password">
+        <ng-container *ngIf="psw.touched">
+          <p class="unClr" *ngIf="psw.errors?.['minlength']">Password should contain 8 characters</p>
+          <p class="unClr" *ngIf="psw.errors?.['required']">Password required</p>
+        </ng-container>
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <div class="form-floating">
+        <input required minlength="8" type="password" ngModel name="cpassword" #cpsw="ngModel" class="form-control"
+          id="floatingPassword" placeholder="Password">
+        <div class="unClr"
+          *ngIf="registerF.controls['cpassword']?.['touched']&& registerF.controls['password']?.['value'] != registerF.controls['cpassword']?.['value']"
+          ngModel name="condition" #cond="ngModel">
+          Passwords must match
+
+        </div>
+        <label for="floatingPassword">Confirm Password</label>
+      </div>
+
+      <!-- <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" ngModel name='remember-me' value="remember-me"> Remember me
+          </label>
+        </div> -->
+      <button class="w-50 btn btn-lg btn-primary" type="submit" [disabled]="registerF.invalid">Sign-up</button>
+      <p class="mt-4 mb-2 text-muted">&copy; 2017–2022</p>
+    </form>
+  </main>
+</div>
+</div>
+</body>
+
+
+
+
+<!-- 
+<form [formGroup]="rForm">
+<label>User Name</label>
+<input type="text" formControlName="userName">
+<label>Email</label>
+<input type="email" formControlName="email">
+<button (click)="show()" >submit</button>
+</form> -->
+
+
+
+<!-- <form [formGroup]="userRegistationReactiveForm">
+    <label>Name</label>
+    <input type="text" formControlName="name">
+    <label>mobileNumber</label>
+    <input type="text" formControlName="mobileNumber">
+    <button (click)="submitReactiveForm()">Submit</button>
+    
+</form> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form #registerForm="ngForm" (ngSubmit)="doSubmit(registerForm.value)">
+    <label>Name</label>
+    <input type="text" name="name" ngModel>
+    <label>Mobile no.</label>
+    <input type="text" name="mobileNumber" ngModel>
+    
+    <label for="gender">Geneder</label>
+    <input type="radio" value="male" name="gender" [(ngModel)]="gender"> Male
+    <input type="radio" value="female" name="gender" [(ngModel)]="gender"> Female
+    <button type="submit">Submit</button>
+</form> -->
+
+
+
+
+<!-- {name:'manohar',mobileNumber:'',gender:'female'} -->
+
+<!-- <table><tr><th>Name</th><th>mobileNumber</th><th>Gender</th></tr></table>
+<table  *ngFor="let value of dataTable">
+    <tr>
+       <td>{{value.name}}</td><td>{{value.mobileNumber}}</td><td>{{value.gender}}</td> </tr>
+</table> -->
+<br>
+<br>
+
+
+<!-- <form [formGroup]="userRegistationReactiveForm">
+    <label>Name</label>
+    <input type="text" formControlName="name">
+    <label>mobileNumber</label>
+    <input type="text" formControlName="mobileNumber">
+    <button (click)="submitReactiveForm()">Submit</button>
+    
+</form> -->
+
+<!-- <table><tr><th>Name</th><th>Email</th></tr></table>
+<table  *ngFor="let value of emailTable">
+    <tr>
+       <td>{{value.userName}}</td><td>{{value.email}}</td></tr>
+</table> -->
+<!-- {{userDetails.name}}
+{{userDetails.mobileNumber}}
+{{userDetails.gender}} -->
+
+<!-- <div *ngFor="let value of dataTable">
+    {{value.name}} {{value.mobileNumber}}{{value.gender}}
+</div> -->
+
+
+<!-- <app-table [dataTable]="dataTable" ></app-table>
+<app-table [dataTable]="emailTable" (passData)="receiveData($event)"></app-table> -->
