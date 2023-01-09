@@ -13,6 +13,7 @@ export class UserheaderComponent implements OnInit {
   faHome=faHome
   faIdBadge = faIdBadge
 
+  filteredString:string='';
 
   items:any=[]
 
