@@ -15,8 +15,12 @@
             <li class="nav-item">
               <a class="nav-link active contact">Contact</a>
             </li>
+            <li class="col-md-12 search">
+              <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="filteredString">
+            </li>
+            <span class="searchIcon"><mat-icon>search</mat-icon></span>
           
-             <li style="margin-left: 20px;" >
+             <!-- <li style="margin-left: 20px;" >
             <marquee width="100%" scrollamount="3" >  
               <strong id="gold">Today's 10grams Gold pice = 56300/-</strong></marquee>
             </li>
@@ -24,7 +28,7 @@
             <li>
               <marquee width="100%" scrollamount="3" >  
                 <strong id="silver">Today's 10grams Sliver pice = 720/-</strong></marquee>
-              </li>
+              </li> -->
           </ul>
 <ng-container *ngIf="!loggedIn() else hideLog">
          <div > <button  class="btn btn-primary"  routerLink="/register"> Sign-up </button></div>
