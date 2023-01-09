@@ -273,7 +273,16 @@ app.get("/all/customers", async (req, res) => {
 });
 
 
-
+app.get("/all/customers//", async (req, res) => {
+  console.log('/all/customers')
+console.log("getToken: ", req.headers.token);
+let token = req.headers.token;
+await verifyToken(token);
+dbj.collection("orders").find().toArray(function (err, data) {
+    if (err) throw err;
+    res.send(data);
+  });
+});
 
 
 
