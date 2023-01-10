@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 
+
 @Component({
   selector: 'app-necklace',
   templateUrl: './necklace.component.html',
@@ -11,6 +12,8 @@ export class NecklaceComponent implements OnInit {
 
   nlData:any=[];
   items:any=[];
+
+  searchKey:string='';
 // token = sessionStorage.getItem('token')
 
   constructor(private dService:DataService, private router:Router) {

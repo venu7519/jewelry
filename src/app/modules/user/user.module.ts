@@ -10,9 +10,10 @@ import { UserhomeComponent } from './userhome/userhome.component';
 import { UserheaderComponent } from './userheader/userheader.component';
 import { CartComponent } from './cart/cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -24,7 +25,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RingsComponent,
     UserhomeComponent,
     UserheaderComponent,
-    CartComponent
+    CartComponent,
+    FilterPipe,
+  
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    
+
   ]
 })
 export class UserModule { }
