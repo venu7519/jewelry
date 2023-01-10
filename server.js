@@ -274,9 +274,42 @@ app.get("/all/customers", async (req, res) => {
 
 
 
+app.post("/admin/album", async(req, res) => {
+  console.log("admin/album");
+  console.log("body: ", req.body);
+  console.log("itemId: ", req.body.itemId);
+  // console.log("_id: ", req.body.uId);
+  var id = req.body.itemId;
+  // var email = req.body.email;
+  console.log("getToken: ", req.headers.token);
+  let token = req.headers.token;
+  await verifyToken(token);
+  dbj.collection("albums").findOne({ itemId: id,  }, (err, result) => {
+    if (err) throw err;
+    if (result === null) {
+      dbj.collection("albums").insertOne(req.body, (err, result) => {
+        if (err) throw err;
+        console.log(result);
+      });
+      res.send(JSON.stringify("successfully inserted"));
+    }
+    if (result !== null) {
+      res.send(JSON.stringify("already existed"));
+    }
+  });
+});
 
-
-
+app.get("/admin/designs", async(req, res) => {
+  console.log("/admin/designs");
+  console.log("getToken: ", req.headers.token);
+  let token = req.headers.token;
+  await verifyToken(token);
+  dbj.collection("albums").find().toArray(function (err, data) {
+    if (err) throw err;
+    res.send(data);
+  //   console.log(data)
+  });
+});
 
 
 
