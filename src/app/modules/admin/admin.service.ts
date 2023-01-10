@@ -17,6 +17,15 @@ getAllCustomers(){
   return this.http.get('http://localhost:3000/all/customers')
 }
 
+postAlbum(item:any){
+  console.log(item)
+return this.http.post('http://localhost:3000/admin/album', item)
+}
+
+getAlbum(){
+return this.http.get('http://localhost:3000/admin/designs')
+}
+
 // getAllOrders(){
 //   return this.http.get('http://localhost:3000/all/orders')
 // }

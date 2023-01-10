@@ -1,1 +1,61 @@
-@import"../dashboard/dashboard.component.css"
+/* @import"../dashboard/dashboard.component.css"; */
+.page{
+    color:white;
+    padding: 0 1rem;
+    background:#152238;
+}
+.page_box{
+    height: 80px;
+    background: #1e293b;
+    margin: 0 -1rem;
+    font-size: 26px;
+
+}
+.page_content{
+    min-height: calc(100vh - 178px);
+    border-radius: 10px;
+    margin-top: -1.5rem;
+    background: #152238;
+    color: black;
+}
+.page-data{
+    top:0%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* card  */
+
+.card{
+    padding: 17px;
+    margin: 40px;
+}
+.card img{
+    width: 435px;
+    height: 435px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+.container{
+    margin-top: 50px;
+    /* padding-top: 20px; */
+}
+.btn{
+    
+        margin-left: 20px;
+}
+ body{
+  background:#152238;
+}
+
+
+
+/* .card{
+    height: 75vh;
+} */

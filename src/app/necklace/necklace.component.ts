@@ -49,7 +49,7 @@ addToCart(n:any){
        alert(res)
      }
      else{
-       this.dService.cartList.push(res)
+      //  this.dService.cartList.push(res)
      }
     
 })

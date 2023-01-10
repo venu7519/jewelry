@@ -35,7 +35,7 @@
         </ng-container>
          <ng-template #hideLog>
          <button class="btn btn-primary"  routerLink="/login/jewelry/cart">
-          <i style="font-size: 20px;" class='fa fa-cart-plus'></i> <div class="badge bg-danger">{{dService.cartList.length}}</div>
+          <i style="font-size: 20px;" class='fa fa-cart-plus'></i> <div class="badge bg-danger">{{dService.cartList}}</div>
       </button>
           <button class="btn btn-danger" (click)="logOut()"> log-out </button>
         </ng-template>

@@ -11,8 +11,12 @@ mat-drawer{
 
 mat-drawer-container{
   height: 100%;
+
 }
 
+/* mat-drawer-content{
+  width: 100%;
+} */
 
 /* .main{
   padding-top: 3rem;

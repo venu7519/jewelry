@@ -10,10 +10,12 @@ export class DataService {
 
  nData = {'_id':123, 'name':'raju', 'code':'12vb8' }
  
-cartList:any=[];
+// cartList:any=[];
+public cartList = new BehaviorSubject<any>([])
 
 productList = new BehaviorSubject<any>([]);
 
+public search = new BehaviorSubject<string>("");
 
 session:any = sessionStorage.getItem("userId")?.toString();
 
@@ -172,7 +174,6 @@ addtoCart(data:object){
 }
 
 getItem() : Observable <any>{
-  console.log(this.cartList);
    const userDetails:any = sessionStorage.getItem("email");
    console.log(userDetails);
   return this.http.get('http://localhost:3000/jewelry/cart/2/'+JSON.parse(userDetails))

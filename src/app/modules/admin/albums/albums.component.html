@@ -1,9 +1,27 @@
 
-<div class="container-fluid page">
-    <div class="page_box p-4 ">Albums</div>
-    <div class="page_content shadow p-3 position-relative">
-    <div class="page_content-data position-absolute text-center">
-       Albums Goes Here
-    </div>
-    </div>
-    </div>
+
+ <div class="container-fluid page">
+   <div class="page_box p-4 ">Albums</div>
+   <div class="page_content shadow p-3 position-relative">
+      <div class="page_content-data text-center">
+
+<body>
+   <div class="container">
+       <div class="row">
+           <ng-container *ngFor="let n of album">
+               <div class="card col-md-5">
+                   <img src="{{n.image}}" alt="Necklace-0 (1)">
+                   <h6><strong>ID:&nbsp;</strong>{{n.itemId}}</h6>
+                   <h5>Item:&nbsp; {{n.title}}</h5>
+                   <p><strong>Weight:&nbsp; </strong>{{n.weight}}</p>
+                   <!-- <button class="btn btn-primary" (click)="addToCart(n)">Add to cart</button> -->
+               </div>
+           </ng-container>
+       </div>
+   </div> 
+    
+   </body>
+
+</div>
+</div>
+</div>

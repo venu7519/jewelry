@@ -41,6 +41,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -57,6 +58,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // * MATERIAL IMPORTS
     // BrowserAnimationsModule,
