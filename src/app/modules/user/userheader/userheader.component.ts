@@ -13,7 +13,7 @@ export class UserheaderComponent implements OnInit {
   faHome=faHome
   faIdBadge = faIdBadge
 
-  filteredString:string='';
+ public filteredString !:string;
 
   items:any=[]
 
@@ -21,6 +21,14 @@ export class UserheaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  searchItems(item:any){
+    this.filteredString = (item.target as HTMLInputElement).value;
+    console.log(this.filteredString);
+    this.dService.search.next(this.filteredString)
+
+  }
+
   loggedIn(){
     return sessionStorage.getItem('token');
   }

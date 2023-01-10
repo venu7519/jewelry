@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  type = "Men's Jewelry"
+
+  constructor(private service:AdminService) { }
 
   ngOnInit(): void {
   }
+
+  incertItem(e:any){
+    console.log(e);
+    this.service.postAlbum(e).subscribe(res=>{
+      console.log(res);
+      alert(res);
+    })
+    }
 
 }

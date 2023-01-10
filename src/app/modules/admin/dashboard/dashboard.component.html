@@ -1,8 +1,69 @@
 <div class="container-fluid page">
 <div class="page_box p-4 ">Dashboard</div>
 <div class="page_content shadow p-3 position-relative">
-<div class="page_content-data position-absolute text-center">
-    Dashboard Content Goes Here
-</div>
-</div>
-</div>
+<div class="page_content-data text-center">
+    
+   
+              <!-- form  -->
+     
+              <body class="text-center">
+                 <div class="container">
+                    <!-- <div class="card"> -->
+                    <main class="form-signin w-50 m-auto">
+                       <form #itemIncerting="ngForm" (ngSubmit)="incertItem(itemIncerting.value)">
+                          <!-- <h4>K <i class="fa fa-diamond"></i> V</h4>  -->
+                          <h2 class="h3 mb-3 fw-normal">Incert an item into the Albums</h2>
+     
+                          <div class="form-floating">
+                             <input type="text" ngModel name="title" class="form-control" id="floatingInput"
+                                placeholder="Enter Item Title">
+                             <label for="floatingInput">Title</label>
+                          </div>                
+                          
+                          <div class="form-floating">
+                             <input type="text" ngModel name="itemId"
+                                class="form-control" id="floatingInput" placeholder="xyz">
+     
+                             <label for="floatingInput">Item Id</label>
+                          </div>
+     
+     
+                          <div class="form-floating">
+                             <input  type="text" ngModel  name="weight"  class="form-control"
+                                id="floatingInput" placeholder="itemWeight">
+                             <label for="floatingInput">Item Weight</label>
+                          </div>
+     
+                          <div class="form-floating">
+                             <input  type="text" ngModel name="image"  class="form-control"
+                                id="floatingInput" placeholder="imagepath">
+                             <label for="floatingInput">Image</label>
+                          </div>
+     
+     <br>
+                          <div>                                    
+                           <label style="font-style:italic;">Category : </label>
+                           &nbsp;
+                          
+                          <input type="radio" value="Men's Jewelry" name="category" [(ngModel)]="type" 
+                             id="floatingInput"  class="form-check-input"> Men Jewelry
+                        &nbsp;
+                        
+                          <input type="radio" value="Women's Jewelry" name="category" [(ngModel)]="type"
+                             id="floatingInput" class="form-check-input"> Women Jewelry
+                          </div>
+     <br>
+                          <button class="w-50 btn btn-lg btn-primary" type="submit">Incert</button>
+                          <p class="mt-4 mb-2 text-muted">&copy; 2017–2022</p>
+                       </form>
+                    </main>
+                    <!-- </div> -->
+                 </div>
+              </body>
+     
+           </div>
+        </div>
+     </div>
+
+
+

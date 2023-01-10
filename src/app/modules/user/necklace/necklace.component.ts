@@ -30,7 +30,12 @@ export class NecklaceComponent implements OnInit {
 
 
     ngOnInit(): void {
-      console.log('ngOnInit called')
+      console.log('ngOnInit called');
+
+      this.dService.search.subscribe(val=>{
+        console.log(val);
+        this.searchKey = val
+      })
 
       }
      
@@ -48,7 +53,7 @@ addToCart(n:any){
        alert(res)
      }
      else{
-       this.dService.cartList.push(res)
+       this.dService.cartList.next(res)
      }
     
 })

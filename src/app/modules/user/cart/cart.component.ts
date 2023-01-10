@@ -20,7 +20,7 @@ constructor(private router: Router, private dService:DataService) {
   dService.getItem().subscribe(res=>{
     console.log(res)
     this.items=res
-    this.dService.cartList = res;
+    this.dService.cartList = res.length;
   })
   console.log(this.items)
   // console.log(this.items.data)
@@ -35,7 +35,7 @@ console.log(item)
 this.dService.removeItem(item).subscribe(res=>{
 console.log(res)
 this.items=res;
-this.dService.cartList = res;
+this.dService.cartList.next(this.items.length)
 });
 }
 
@@ -53,7 +53,7 @@ emptyCart(){
 this.dService.emptyCart().subscribe(res=>{
   console.log(res)
   this.items=res
-  this.dService.cartList = []
+  this.dService.cartList.next('')
 })
 
 }

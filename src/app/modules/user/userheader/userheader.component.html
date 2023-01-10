@@ -16,7 +16,7 @@
               <a class="nav-link active contact">Contact</a>
             </li>
             <li class="col-md-12 search">
-              <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="filteredString">
+              <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="filteredString" (keyup)="searchItems($event)" >
             </li>
             <span class="searchIcon"><mat-icon>search</mat-icon></span>
           
@@ -39,7 +39,7 @@
             <span id="uname">{{dService.getSessionData()}}</span>
       </li>
          <button class="btn btn-primary"  routerLink="/cart">
-          <i style="font-size: 20px;" class='fa fa-cart-plus'></i> <div class="badge bg-danger">{{dService.cartList.length}}</div>
+          <i style="font-size: 20px;" class='fa fa-cart-plus'></i> <div class="badge bg-danger">{{dService.cartList}}</div>
       </button>
           <button class="btn btn-danger" (click)="logOut()"> log-out </button>
         </ng-template>

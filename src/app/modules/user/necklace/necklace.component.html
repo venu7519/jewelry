@@ -2,7 +2,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <ng-container *ngFor="let n of nlData | filter:searchKey:'title'">
+            <ng-container *ngFor="let n of nlData | filter:searchKey:'id' || 'weight' ">
                 <div class="card col-md-5">
                     <img src="{{n.image}}" alt="Necklace-0 (1)">
                     <h6><strong>ID:&nbsp;</strong>{{n.id}}</h6>
