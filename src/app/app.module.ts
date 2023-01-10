@@ -55,7 +55,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminModule } from './modules/admin/admin.module';
 import { UserModule } from './modules/user/user.module';
-import { SearchPipe } from './pipes/search.pipe';
+
 
 
 
@@ -76,7 +76,7 @@ import { SearchPipe } from './pipes/search.pipe';
         NecklaceComponent,
         MenRingsComponent,
         CartComponent,
-        SearchPipe,
+       
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptor, multi: true },
