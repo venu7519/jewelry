@@ -82,7 +82,6 @@ this.mySubscription = observe.subscribe(result => console.log('Subscribe count '
           error =>{ console.log(error)},
           ()=>{console.log('completed')}
         )
-
       }
 
 
