@@ -329,15 +329,32 @@ function verifyToken(token) {
         return false;
     }
   }catch(err){
-    res.status(401)
+    res.send(401)
   }
 }
 
+// const verifyToken = (token, res)=>{
+
+//   console.log('token is',token)
+//   if(!token){
+//       res.status(401).send('Unauthorize user')
+//   }
+//   else{
+//       jwt.verify(token, secretKey, (err, decodedToken)=>{
+//           if(!err){
+//               token.decodedToken=decodedToken
+//           }
+//           else if(err){
+//               res.status(401)
+//           }
+//       })
+//   }
+// }
 
 
 app.listen(3000);
 
-// app.post('/registration/1',(req,res)=>{
+// app.post('/registration/1',(req,res)=>{ 
 //         console.log(req.body);
 //         dbo.collection('register').insertOne(req.body,(err,result)=>{
 
