@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable} from 'rxjs';
+import { BehaviorSubject, map, observable, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

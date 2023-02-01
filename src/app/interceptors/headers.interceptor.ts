@@ -9,6 +9,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 
+
 @Injectable()
 export class HeadersInterceptor implements HttpInterceptor {
 
@@ -29,12 +30,31 @@ export class HeadersInterceptor implements HttpInterceptor {
 }
    return next.handle(request)
     //  .pipe(catchError(err=>{
+    //   console.log(err)
+    //   if(err){
+    //     this.dService.logOut();
+    //     this.router.navigate(['/login']);
+    //   }
+    //   return throwError(err)
+    // }))
+
+ .pipe(catchError(err=>{
+      if(err.status === 401){
+        alert('Session Expired - please Login again')
+        this.dService.logOut();
+        this.router.navigate(['/login']);
+      }
+      const error = err.error.message || err.statusText;
+      return throwError(error);
+    }))
+
+  }
+}
+ // .pipe(catchError(err=>{
     //   if(err.status === 401){
     //     this.dService.logOut();
     //     this.router.navigate(['/login']);
     //   }
     //   const error = err.error.message || err.statusText;
-    //   return throwError(err)
+    //   return throwError(error);
     // }))
-  }
-}
