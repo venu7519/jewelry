@@ -13,7 +13,9 @@ export class CustomersComponent implements OnInit, OnDestroy{
 
   private mySubscription!: Subscription;
 
- 
+static reverse(word: string): string {
+return word.split('').reverse().join('')
+ }
 
     
    obs = new Observable((obsrv)=>{
@@ -28,6 +30,7 @@ export class CustomersComponent implements OnInit, OnDestroy{
 
 
   constructor() {
+    console.log()
     }
 
   ngOnInit(): void {

@@ -23,7 +23,9 @@ closePopup(){
 
 
 
-  constructor() { }
+  constructor() {
+    console.log('constructor call')
+   }
 
   ngOnInit(): void {
   }

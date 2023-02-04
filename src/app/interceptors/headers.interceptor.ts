@@ -3,9 +3,10 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpResponse
 } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 
@@ -20,15 +21,26 @@ export class HeadersInterceptor implements HttpInterceptor {
     if(sessionStorage.getItem('token')){
       const token:any = sessionStorage.getItem('token');
       console.log(token)
-    request = request.clone({  
+      request = request.clone({  
       setHeaders: {  
         'Content-Type':  'application/json',
         'Authorization':  'token',
         'token': JSON.parse(token)
-      }  
+      } 
   }); 
 }
    return next.handle(request)
+   .pipe(
+    tap(e=> {
+      if( e instanceof HttpResponse){ 
+        console.log(e)
+        
+      }}
+      ),
+      )
+   
+
+
     //  .pipe(catchError(err=>{
     //   console.log(err)
     //   if(err){
@@ -38,15 +50,15 @@ export class HeadersInterceptor implements HttpInterceptor {
     //   return throwError(err)
     // }))
 
- .pipe(catchError(err=>{
-      if(err.status === 401){
-        alert('Session Expired - please Login again')
-        this.dService.logOut();
-        this.router.navigate(['/login']);
-      }
-      const error = err.error.message || err.statusText;
-      return throwError(error);
-    }))
+//  .pipe(catchError(err=>{
+//       if(err.status === 401){
+//         alert('Session Expired - please Login again')
+//         this.dService.logOut();
+//         this.router.navigate(['/login']);
+//       }
+//       const error = err.error.message || err.statusText;
+//       return throwError(error);
+//     }))
 
   }
 }
