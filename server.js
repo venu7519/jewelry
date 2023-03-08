@@ -4,7 +4,7 @@ var mongodb = require("mongodb").MongoClient;
 var cors = require("cors");
 const { ObjectId } = require("mongodb");
 
-const nodemon = require('nodemon')
+const nodemon = require("nodemon");
 const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
 // Set up Global configuration access
@@ -49,10 +49,10 @@ app.post("/registration/1", (req, res) => {
   console.log("password " + password);
   dbo
     .collection("register")
-    .findOne({ email: email, password: password }, (err, result) => {
+    .findOne({ email: email}, (err, result) => {
       if (err) throw err;
       if (result === null) {
-        dbo.collection("register").insert(req.body, (err, result) => {
+        dbo.collection("register").insertOne(req.body, (err, result) => {
           if (err) throw err;
           console.log(result);
         });
@@ -71,7 +71,9 @@ app.post("/login", (req, res) => {
   var Password = req.body.password;
   console.log("email" + Username);
   console.log("password " + Password);
-  dbo.collection("register").findOne({ email: Username, password: Password }, (err, result) => {
+  dbo
+    .collection("register")
+    .findOne({ email: Username, password: Password }, (err, result) => {
       if (err) throw err;
 
       if (result !== null) {
@@ -84,7 +86,13 @@ app.post("/login", (req, res) => {
 
         const authToken = jwt.sign(rdata, secretKey, { expiresIn: "1h" });
         // res.send(JSON.stringify(result), authToken);
-        res.send(JSON.stringify({ token: authToken, email: result.email, userName: result.userName }));
+        res.send(
+          JSON.stringify({
+            token: authToken,
+            email: result.email,
+            userName: result.userName,
+          })
+        );
         console.log(JSON.stringify(result));
       }
       if (result === null) {
@@ -110,36 +118,40 @@ app.delete("/deldata/:uName", (req, res) => {
 });
 
 app.get("/jewelry/necklace", async (req, res) => {
-    console.log('/jewelry/necklace')
+  console.log("/jewelry/necklace");
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
-  dbj.collection("Necklace").find().toArray(function (err, data) {
+  dbj
+    .collection("Necklace")
+    .find()
+    .toArray(function (err, data) {
       if (err) throw err;
       res.send(data);
     });
 });
 
-
-app.get("/jewelry/men/rings", async(req, res) => {
+app.get("/jewelry/men/rings", async (req, res) => {
   console.log("jewelry/men/rings");
-  console.log( req.body);
+  console.log(req.body);
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   const jwtStatus = await verifyToken(token);
-  if(jwtStatus) {
-    dbj.collection("MenRings").find().toArray(function (err, data) {
+  if (jwtStatus) {
+    dbj
+      .collection("MenRings")
+      .find()
+      .toArray(function (err, data) {
         if (err) throw err;
         res.send(data);
-      //   console.log(data)
+        //   console.log(data)
       });
   } else {
     res.status(401).send(data);
   }
-  
 });
 
-app.post("/jewelry/cart/1", async(req, res) => {
+app.post("/jewelry/cart/1", async (req, res) => {
   console.log("/jewelry/cart/1");
   console.log("body: ", req.body);
   console.log("email: ", req.body.email);
@@ -164,7 +176,7 @@ app.post("/jewelry/cart/1", async(req, res) => {
   });
 });
 
-app.get("/jewelry/cart/2/:id", async(req, res) => {
+app.get("/jewelry/cart/2/:id", async (req, res) => {
   console.log("/jewelry/cart/2");
   console.log(req.body);
   console.log("id: " + req.params.id);
@@ -172,37 +184,42 @@ app.get("/jewelry/cart/2/:id", async(req, res) => {
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
-  dbj.collection("cart").find({email:id}).toArray(function (err, data) {
-    if (err) throw err;
-    res.send(data);
-  //   console.log(data)
-  });
+  dbj
+    .collection("cart")
+    .find({ email: id })
+    .toArray(function (err, data) {
+      if (err) throw err;
+      res.send(data);
+      //   console.log(data)
+    });
 });
 
-app.delete("/jewelry/cart/remove/id/:id/email/:email", async(req, res) => {
+app.delete("/jewelry/cart/remove/id/:id/email/:email", async (req, res) => {
   console.log("/jewelry/cart/remove/");
   console.log("uid: " + req.params.id);
   console.log("userid: " + req.params.email);
   // console.log("email: " + req.params.id.u);
   var id = req.params.id;
   var email = req.params.email;
-//   var email = req.body.email;
+  //   var email = req.body.email;
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
   dbj.collection("cart").deleteOne({ uId: id, email: email }, (err, result) => {
-      if (err) throw err;
-      console.log(result);
+    if (err) throw err;
+    console.log(result);
 
-      dbj.collection("cart").find({email:email}).toArray(function (err, data) {
-          if (err) throw err;
-          res.send(data);
-        });
-    });
+    dbj
+      .collection("cart")
+      .find({ email: email })
+      .toArray(function (err, data) {
+        if (err) throw err;
+        res.send(data);
+      });
+  });
 });
 
-
-app.post("/cart/orders", async(req, res) => {
+app.post("/cart/orders", async (req, res) => {
   console.log("/jewelry/cart/1");
   console.log("body: ", req.body);
   console.log("email: ", req.body.email);
@@ -212,7 +229,7 @@ app.post("/cart/orders", async(req, res) => {
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
-  dbj.collection("orders").findOne({email: email }, (err, result) => {
+  dbj.collection("orders").findOne({ email: email }, (err, result) => {
     if (err) throw err;
     if (result === null) {
       dbj.collection("orders").insertMany(req.body, (err, result) => {
@@ -227,27 +244,28 @@ app.post("/cart/orders", async(req, res) => {
   });
 });
 
-
-app.delete("/emptycart/email/:email", async(req, res) => {
+app.delete("/emptycart/email/:email", async (req, res) => {
   console.log("emptycart/email/");
   console.log("userid: " + req.params.email);
   var email = req.params.email;
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
-  dbj.collection("cart").deleteMany({email: email }, (err, result) => {
-      if (err) throw err;
-      console.log(result);
+  dbj.collection("cart").deleteMany({ email: email }, (err, result) => {
+    if (err) throw err;
+    console.log(result);
 
-      dbj.collection("cart").find({email:email}).toArray(function (err, data) {
-          if (err) throw err;
-          res.send(data);
-        });
-    });
+    dbj
+      .collection("cart")
+      .find({ email: email })
+      .toArray(function (err, data) {
+        if (err) throw err;
+        res.send(data);
+      });
+  });
 });
 
-
-app.get("/customer/info/:id", async(req, res) => {
+app.get("/customer/info/:id", async (req, res) => {
   console.log("/jewelry/cart/2");
   console.log(req.body);
   console.log("id: " + req.params.id);
@@ -255,26 +273,30 @@ app.get("/customer/info/:id", async(req, res) => {
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
-  dbj.collection("orders").find({email:id}).toArray(function (err, data) {
-    if (err) throw err;
-    res.send(data);
-  });
-});
-
-app.get("/all/customers", async (req, res) => {
-    console.log('/all/customers')
-  console.log("getToken: ", req.headers.token);
-  let token = req.headers.token;
-  await verifyToken(token);
-  dbj.collection("orders").find().toArray(function (err, data) {
+  dbj
+    .collection("orders")
+    .find({ email: id })
+    .toArray(function (err, data) {
       if (err) throw err;
       res.send(data);
     });
 });
 
+app.get("/all/customers", async (req, res) => {
+  console.log("/all/customers");
+  console.log("getToken: ", req.headers.token);
+  let token = req.headers.token;
+  await verifyToken(token);
+  dbj
+    .collection("orders")
+    .find()
+    .toArray(function (err, data) {
+      if (err) throw err;
+      res.send(data);
+    });
+});
 
-
-app.post("/admin/album", async(req, res) => {
+app.post("/admin/album", async (req, res) => {
   console.log("admin/album");
   console.log("body: ", req.body);
   console.log("itemId: ", req.body.itemId);
@@ -286,50 +308,49 @@ app.post("/admin/album", async(req, res) => {
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
-  dbj.collection("albums").findOne({ itemId: id, image: img }, (err, result) => {
-    if (err) throw err;
-    if (result === null) {
-      dbj.collection("albums").insertOne(req.body, (err, result) => {
-        if (err) throw err;
-        console.log(result);
-      });
-      res.send(JSON.stringify("successfully inserted"));
-    }
-    if (result !== null) {
-      res.send(JSON.stringify("already existed"));
-    }
-  });
+  dbj
+    .collection("albums")
+    .findOne({ itemId: id, image: img }, (err, result) => {
+      if (err) throw err;
+      if (result === null) {
+        dbj.collection("albums").insertOne(req.body, (err, result) => {
+          if (err) throw err;
+          console.log(result);
+        });
+        res.send(JSON.stringify("successfully inserted"));
+      }
+      if (result !== null) {
+        res.send(JSON.stringify("already existed"));
+      }
+    });
 });
 
-app.get("/admin/designs", async(req, res) => {
+app.get("/admin/designs", async (req, res) => {
   console.log("/admin/designs");
   console.log("getToken: ", req.headers.token);
   let token = req.headers.token;
   await verifyToken(token);
-  dbj.collection("albums").find().toArray(function (err, data) {
-    if (err) throw err;
-    res.send(data);
-  //   console.log(data)
-  });
+  dbj
+    .collection("albums")
+    .find()
+    .toArray(function (err, data) {
+      if (err) throw err;
+      res.send(data);
+      //   console.log(data)
+    });
 });
 
-
-
-
-
-
-
 function verifyToken(token) {
-  try{
+  try {
     const decode = jwt.verify(token, secretKey);
-        console.log("decoded: ", decode);
-    if(Date.now() <= decode.exp * 1000) {
-        return true;
+    console.log("decoded: ", decode);
+    if (Date.now() <= decode.exp * 1000) {
+      return true;
     } else {
-        return false;
+      return false;
     }
-  }catch(err){
-    res.send(401)
+  } catch (err) {
+    throw err
   }
 }
 
@@ -351,10 +372,9 @@ function verifyToken(token) {
 //   }
 // }
 
-
 app.listen(3000);
 
-// app.post('/registration/1',(req,res)=>{ 
+// app.post('/registration/1',(req,res)=>{
 //         console.log(req.body);
 //         dbo.collection('register').insertOne(req.body,(err,result)=>{
 
