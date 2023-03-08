@@ -23,7 +23,7 @@ postAlbum(item:any){
 return this.http.post('http://localhost:3000/admin/album', item)
 }
 
-getAlbum(){
+getAlbum(): Observable <any>{
 return this.http.get('http://localhost:3000/admin/designs')
 }
 

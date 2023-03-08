@@ -83,7 +83,7 @@ console.log(form)
 
 postLoginData(data:string){
         console.log(data);
-        return this.http.post('http://localhost:3000/login', data)
+        return this.http.post('http://localhost:3000/login', data);
       //   .pipe(map(user=>{
       //     console.log(user)
       //     sessionStorage.setItem("currentUser", JSON.stringify(user));

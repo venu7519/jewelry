@@ -42,6 +42,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgOtpInputModule } from 'ng-otp-input';
+
 
 
 
@@ -60,7 +62,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
+    NgOtpInputModule,
     // * MATERIAL IMPORTS
     // BrowserAnimationsModule,
     MatInputModule,
@@ -91,7 +93,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
   ]
 })
 export class AdminModule { }

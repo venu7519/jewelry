@@ -18,3 +18,7 @@
     min-height: calc(100vh - 178px);
     
 }
+
+body{
+    height: 100vh;
+}

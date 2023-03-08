@@ -20,11 +20,13 @@ closePopup(){
   this.show=false;
 }
 
-
+rdata = [{id :22}]
 
 
   constructor() {
-    console.log('constructor call')
+    console.log(this.rdata);
+console.log(this.rdata.findIndex(id => id.id == 22));
+console.log(this.rdata[0].id)
    }
 
   ngOnInit(): void {

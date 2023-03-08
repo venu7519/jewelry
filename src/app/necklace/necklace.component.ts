@@ -11,7 +11,7 @@ import { DataService } from '../data.service';
 export class NecklaceComponent implements OnInit {
 
  
-
+cData = ''
 
   nlData:any=[];
   items:any=[];

@@ -13,6 +13,8 @@ export class NecklaceComponent implements OnInit {
   nlData:any=[];
   items:any=[];
 
+  cartRef:any = []
+
   searchKey:string='';
 // token = sessionStorage.getItem('token')
 
@@ -37,26 +39,26 @@ export class NecklaceComponent implements OnInit {
         this.searchKey = val
       })
 
+
+      
       }
      
-    
-  
-    logOut(){
-  this.router.navigate(['/home'])
-    }
-  
-addToCart(n:any){
+    addToCart(n:any){
     console.log(n);
     this.dService.addtoCart(n).subscribe(res=>{
     console.log(res);
     if(res == 'already added'){
        alert(res)
      }
-     else{
-       this.dService.cartList.next(res)
+     if(res == "added to cart"){
+      this.cartRef.push('a')
+       this.dService.cartList = this.cartRef.length
      }
-    
-})
-}
+     console.log(JSON.stringify(res))
+    })
+
+    console.log(this.cartRef)
+      console.log(this.cartRef.length)
+  }
 
 }

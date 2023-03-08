@@ -10,10 +10,14 @@ export class AlbumsComponent implements OnInit {
 
  album:any = []
 
-  constructor(private service:AdminService) { 
-    service.getAlbum().subscribe(res=>{
-      this.album = res;
-      console.log(res);
+  constructor(private AdminService:AdminService) { 
+    AdminService.getAlbum().subscribe({
+      next:(data)=>{
+        console.log(data);
+        this.album = data;
+      },
+      error:(e)=> console.log(e),
+      complete:()=> console.info('completed')
     })
   }
 

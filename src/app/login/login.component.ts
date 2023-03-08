@@ -19,12 +19,17 @@ fData:any=[]
   uData:any=[];
   
   emailTable:any=[];
+  
   rForm:FormGroup;
 
   faEye=faEye
   faEyeSlash=faEyeSlash
 
+gForm:FormGroup;
+
   showpassword=false;
+
+  otp:any=[]
 
   constructor(private dataService:DataService, private router:Router, private fb:FormBuilder){
   //   dataService.getLoginData('').subscribe(res=>{
@@ -34,6 +39,17 @@ fData:any=[]
   //   });
 
   // console.log(this.uData);
+
+this.gForm = fb.group({
+  name : ['', [Validators.required, Validators.minLength(3)]],
+  password : ['', [Validators.required, Validators.minLength(8)]]
+})
+
+
+
+
+
+
 
   this.rForm = fb.group({
     name : ['',[Validators.required, Validators.minLength(4)]],
@@ -58,6 +74,7 @@ toggleShow(){
 }
 
 login(data:any){
+  console.log(data)
   console.log(data.email);
     this.dataService.postLoginData(data).subscribe((res:any)=>{
       console.log(res)
@@ -89,10 +106,15 @@ login(data:any){
   }
 
 
+show(){
+  console.log(this.gForm)
+  console.log(this.gForm.value)
+}
 
 
-
-
+get getControls(){
+  return this.gForm.controls;
+}
 
 
 
@@ -120,7 +142,16 @@ login(data:any){
     console.log( this.rForm.valid );
   }
     
-  
+  // onInputChange(otpData:any){
+  //   console.log(otpData)
+  //   return otpData
+  // }
+
+  // verifyOtp(){
+  // }
+
+
+
 
 }
 

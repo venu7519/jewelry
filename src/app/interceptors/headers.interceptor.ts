@@ -30,35 +30,49 @@ export class HeadersInterceptor implements HttpInterceptor {
   }); 
 }
    return next.handle(request)
-   .pipe(
-    tap(e=> {
-      if( e instanceof HttpResponse){ 
-        console.log(e)
-        
-      }}
-      ),
-      )
-   
+    .pipe(catchError(err=>{
+      if(err.status === 401){
+        alert('Session Expired - please Login again')
+        this.dService.logOut();
+        this.router.navigate(['/login']);
+      }
+      const error = new Error('some error catched by interceptors') || err.statusText;
+      return throwError(()=>error);
+    }))
+
+
+
+
+
+
+
+
+
+
 
 
     //  .pipe(catchError(err=>{
     //   console.log(err)
     //   if(err){
-    //     this.dService.logOut();
-    //     this.router.navigate(['/login']);
+    //     alert('something went wrong!')
+    //     // this.dService.logOut();
+    //     // this.router.navigate(['/login']);
     //   }
     //   return throwError(err)
     // }))
 
-//  .pipe(catchError(err=>{
-//       if(err.status === 401){
-//         alert('Session Expired - please Login again')
-//         this.dService.logOut();
-//         this.router.navigate(['/login']);
-//       }
-//       const error = err.error.message || err.statusText;
-//       return throwError(error);
-//     }))
+    // .pipe(
+    //   tap(e=> {
+    //     if( e instanceof HttpResponse){ 
+    //       console.log(e)
+          
+    //     }}
+    //     ),
+    //     )
+
+
+
+
 
   }
 }

@@ -1,9 +1,113 @@
-<div class="container-fluid page">
+<!-- <div class="container-fluid page">
     <div class="page_box p-4 ">Customer Details</div>
     <div class="page_content shadow p-3 position-relative">
     <div class="page_content-data position-absolute text-center">
         Customer Content Goes Here
+
+
         <button class="btn btn-primary" (click)="get()">Subscribe</button>
     </div>
     </div>
+    </div> -->
+
+    <body>
+      <h2>Parent Component:</h2>
+      
+    </body>
+ 
+ 
+ 
+
+
+    
+
+
+    <!-- <div class="container" >
+          <div class="card position-relative mt-4" > 
+            <h1 class="text-center mt-5">ESMSYS</h1>          
+            <div class="card-body text-center mt-2">
+             <div id="strong"><strong>Enter OTP</strong></div>
+                <ng-otp-input (onInputChange)="onInputChange($event)"  [config]="{length:6}"></ng-otp-input>
+            <button class="btn btn-primary m-3" style="width: 420px;" (click)="verifyOtp()">verify OTP</button>
+           <div class="text-center"> <button class="btn btn-warning m-3 w-50">Resend OTP</button></div> </div>
+        </div>
+        </div>
+        
+
+        <div class="container" >
+            <div class="position-relative text-center">
+            <div class="card mt-4" > 
+              <h1 class="text-center mt-5">ESMSYS</h1>       
+              <p >Enter your email address and we'll send you a <br> New Password</p>   
+              <div class="card-body mt-4">
+             <label for="email" id="mail">Email :</label>
+                <input type="email" required placeholder="Email" class="form-control mt-2">
+              <button class="btn btn-primary m-3" style="width: 420px;" (click)="verifyEmail()">submit</button>
+              </div>
+          </div>
+          <div class="link">Back to <a  class="link" style="text-decoration: none;"  routerLink="" ><strong>Log In</strong></a></div>
+        </div>
     </div>
+          
+          
+
+
+          <div class="container" >
+            <div class="card position-relative mt-4" > 
+              <h1 class="text-center mt-5">ESMSYS</h1>          
+              <div class="card-body text-center mt-2">
+               <div id="strong"><strong>Enter OTP</strong></div>
+                  <ng-otp-input (onInputChange)="onInputChange($event)"  [config]="{length:6}"></ng-otp-input>
+              <button class="btn btn-primary m-3" style="width: 420px;" (click)="verifyOtp()">verify OTP</button>
+             <div class="text-center"> <button class="btn btn-warning m-3 w-50">Resend OTP</button></div> </div>
+          </div>
+          </div>
+
+
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>List length</mat-label>
+            <input matInput [(ngModel)]="length" type="number">
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Page size</mat-label>
+            <input matInput [(ngModel)]="pageSize" type="number">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Page size options</mat-label>
+            <input matInput [ngModel]="pageSizeOptions" (ngModelChange)="setPageSizeOptions($event)"
+                   [ngModelOptions]="{updateOn: 'blur'}" placeholder="Ex. 10,25,50">
+          </mat-form-field>
+          
+          <mat-paginator [length]="length"
+                         [pageSize]="pageSize"
+                         [pageSizeOptions]="pageSizeOptions"
+                         (page)="pageEvent = $event"
+                         aria-label="Select page">
+          </mat-paginator>
+          
+          <div *ngIf="pageEvent">
+            <h5>Page Change Event Properties</h5>
+            <div>List length: {{pageEvent.length}}</div>
+            <div>Page size: {{pageEvent.pageSize}}</div>
+            <div>Page index: {{pageEvent.pageIndex}}</div>
+          </div>
+           -->
+
+
+
+
+
+<!-- <mat-card>
+    <mat-card-content>
+        <h3 class="text-center pt-5" style="font-weight: bold;"> Enter OTP</h3>
+            <div class="card-body">
+                <ng-otp-input (onInputChange)="onInputChange($event)"  [config]="{length:6}"></ng-otp-input>
+            
+            <button style="background-color: #2cbda1; color: white; border:none; width: 71%; margin-top: 15px;" (click)="verifyOtp()">verify OTP</button>
+           <div class="text-center"> <button class="btn btn-primary m-2 w-50"><span style="color: white;"><mat-icon>resend</mat-icon></span> Resend OTP</button></div> </div>
+    </mat-card-content>
+</mat-card> -->
+

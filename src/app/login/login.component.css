@@ -39,13 +39,14 @@ input.ng-touched.ng-valid{
 body{
     padding-top: 30px;
 }
-.card{
+/* .card{
     height: 80vh;
-}
+} */
 .eye{
     position: absolute;
     bottom: 10px;
     right: 10px;
     cursor: pointer;
 }
+
 

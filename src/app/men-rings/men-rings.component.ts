@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { DataService } from '../data.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NecklaceComponent } from '../necklace/necklace.component';
+
 
 @Component({
   selector: 'app-men-rings',
@@ -9,41 +9,29 @@ import { DataService } from '../data.service';
 })
 export class MenRingsComponent implements OnInit {
 
-  mrData:any=[];
-  items:any=[];
+@ViewChild(NecklaceComponent) necklace:any
 
-constructor(private dService:DataService, private router:Router) {
-  
-  dService.getMRdata().subscribe(res=>{
-    console.log(res);
-this.mrData = res;
-  })
-console.log(this.mrData)
-  
+child = ''
+
+constructor() {
+
+
+
+ 
 }
 ngOnInit(): void {
  
 }
 
+getChild(){
+  this.child = this.necklace.cData
+}
 
-addToCart(n:any){
-  console.log(n)
-  this.dService.addtoCart(n).subscribe(res=>{
-    console.log(res);
-    if(res == 'already added'){
-       alert(res)
-     }
-     else{
-      //  this.dService.cartList.next(res)
-     }
+
     
-})
 }
 
 
-
-
-}
 
 
 

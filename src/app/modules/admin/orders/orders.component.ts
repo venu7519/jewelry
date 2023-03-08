@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -7,6 +7,13 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+
+  @Input() childD:any;
+ 
+  @Output() customEvent = new EventEmitter();
+  msg = 'Hello From child'
+
+
 
   orders:any = []
 
@@ -19,6 +26,15 @@ export class OrdersComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
   }
 
+passToParent(){
+  this.customEvent.emit(this.msg)
+}
+
+
+
+
+  
 }

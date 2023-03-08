@@ -35,7 +35,7 @@ console.log(item)
 this.dService.removeItem(item).subscribe(res=>{
 console.log(res)
 this.items=res;
-this.dService.cartList.next(this.items.length)
+this.dService.cartList = this.items.length
 });
 }
 
@@ -53,7 +53,7 @@ emptyCart(){
 this.dService.emptyCart().subscribe(res=>{
   console.log(res)
   this.items=res
-  this.dService.cartList.next('')
+  this.dService.cartList=this.items.length
 })
 
 }

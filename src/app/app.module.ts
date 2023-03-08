@@ -21,7 +21,6 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import {HeadersInterceptor } from './interceptors/headers.interceptor'
 import {ErrorInterceptor } from './interceptors/error.interceptor';
 
-
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
@@ -62,6 +61,8 @@ import { UserModule } from './modules/user/user.module';
 
 
 
+
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -92,6 +93,9 @@ import { UserModule } from './modules/user/user.module';
         HttpClientModule,
         FontAwesomeModule,
         NgxImageZoomModule,
+       
+      
+       
         // * MATERIAL IMPORTS
         BrowserAnimationsModule,
         MatInputModule,

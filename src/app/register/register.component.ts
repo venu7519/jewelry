@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router, TitleStrategy } from '@angular/router';
 import { DataService } from '../data.service';
+import { componentPath } from '../enums/componentPaths.enum';
 
 @Component({
   selector: 'app-register',
@@ -33,14 +34,11 @@ ngOnInit(): void {}
 
 register(form:any){
   console.log(form)
-    this.dataService.postFormData(form.value).subscribe(res=>{
+    this.dataService.postFormData(form).subscribe(res=>{
       console.log(res)
-      if(res == '' ){
-        alert('Please Enter Your Details')
-      }
       if(res == 'registered'){
         alert('Successfully registered')
-        this.router.navigate(['/login'])
+        this.router.navigate(['/'+componentPath.login])
       }
       else{
         alert('Email is already exist try with another')

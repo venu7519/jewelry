@@ -4,7 +4,7 @@
 <div class="container">
   <div class="card">
 <main class="form-signin w-50 m-auto">
-    <form #registerF="ngForm" (ngSubmit)="register(registerF)">
+    <form #registerF="ngForm" (ngSubmit)="register(registerF.value)">
      <h4>K <i class="fa fa-diamond"></i> V</h4>
       <h1 class="h3 mb-3 fw-normal">Please Sign-up</h1>
 
@@ -53,8 +53,7 @@
         <input required minlength="8" type="password" ngModel name="cpassword" #cpsw="ngModel" class="form-control"
           id="floatingPassword" placeholder="Password">
         <div class="unClr"
-          *ngIf="registerF.controls['cpassword']?.['touched']&& registerF.controls['password']?.['value'] != registerF.controls['cpassword']?.['value']"
-          ngModel name="condition" #cond="ngModel">
+          *ngIf="registerF.controls['cpassword']?.['touched']&& registerF.controls['password']?.['value'] != registerF.controls['cpassword']?.['value']">
           Passwords must match
 
         </div>

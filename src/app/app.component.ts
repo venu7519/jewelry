@@ -7,6 +7,8 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.css']
 })
 
+
+
 export class AppComponent {
   title ="waynu";
   // even = [ 'venuk', 'venuk', 'venuk', 'rahul', 'rahul', 'balu', 'balu' ]

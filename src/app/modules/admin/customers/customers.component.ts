@@ -1,9 +1,11 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { filter, Observable, Subscription } from 'rxjs';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
-@Component({
+@Component({ 
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
@@ -11,11 +13,29 @@ import { filter, Observable, Subscription } from 'rxjs';
 export class CustomersComponent implements OnInit, OnDestroy{
 
 
+  parentData=[1,2,3,4,5];
+  
+fromChild:any;
+
+@ViewChild(DashboardComponent) dashBoard !: DashboardComponent
+
+  // MatPaginator Inputs
+  length = 100;
+  pageSize = 10;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+
+  // MatPaginator Output
+  pageEvent: PageEvent = new PageEvent;
+
+
+
+
+
   private mySubscription!: Subscription;
 
-static reverse(word: string): string {
-return word.split('').reverse().join('')
- }
+name = 'kandukoori'
+revese = (stng:any)=>((stng).split('').reverse().join(''))
+ 
 
     
    obs = new Observable((obsrv)=>{
@@ -30,7 +50,9 @@ return word.split('').reverse().join('')
 
 
   constructor() {
-    console.log()
+    console.log('reversed name is '+this.revese(this.name))
+
+    
     }
 
   ngOnInit(): void {
@@ -46,6 +68,10 @@ return word.split('').reverse().join('')
       })
        
       promise.then(result => console.log(result));
+
+
+   
+
 
       // observable
       //1&2. const observe = new Observable(sub=>{
@@ -65,35 +91,101 @@ return word.split('').reverse().join('')
 //   filter(d=> d=== 'Observable working3'),
 // ).subscribe(result => console.log(result));
 
-const observe = new Observable(sub=>{
-  console.log('observable call');
-  let counter = 0;
-  setInterval(()=>{
-    counter = counter +1;
-    sub.next(counter);
-  },1000);
-})
+// const observe = new Observable(sub=>{
+//   console.log('observable call');
+//   let counter = 0;
+//   setInterval(()=>{
+//     counter = counter +1;
+//     sub.next(counter);
+//   },1000);
+// })
 
-this.mySubscription = observe.subscribe(result => console.log('Subscribe count '+result));
+// this.mySubscription = observe.subscribe(result => console.log('Subscribe count '+result));
+
+
+
+
 
       }
+
+
+
+
+
+
+getChildData(e:any){
+  this.fromChild = e
+}
+
+
+     
 
 
  get(){
-    this.obs.subscribe(
-          data =>{ console.log(data)},
-          error =>{ console.log(error)},
-          ()=>{console.log('completed')}
-        )
+    this.obs.subscribe({
+      next:(v)=> console.log(v),
+      error:(e)=> console.log(e),
+      complete:()=> console.info('completed')
+
+    })
       }
 
 
+      onInputChange(otpData:any){
+        console.log(otpData)
+        return otpData
+      }
+    
+      verifyOtp(){
+      }
+
+
+      verifyEmail(){
+
+      }
+
+
+
+
+
+
+
 ngOnDestroy(){
-    this.mySubscription.unsubscribe();
+    // this.mySubscription.unsubscribe();
           }
 
 
+
+
+
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
  

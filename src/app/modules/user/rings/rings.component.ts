@@ -11,6 +11,7 @@ export class RingsComponent implements OnInit {
   mrData:any=[];
   items:any=[];
 
+  cartRef:any=[]
 constructor(private dService:DataService, private router:Router) {
   
   dService.getMRdata().subscribe(res=>{
@@ -33,7 +34,8 @@ addToCart(n:any){
        alert(res)
      }
      else{
-       this.dService.cartList.next(res)
+      this.cartRef = res
+       this.dService.cartList = this.cartRef.length
      }
     
 })
